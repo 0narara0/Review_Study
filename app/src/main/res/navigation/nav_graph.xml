@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/userListFragment">
+
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.narara.review_study.ui.UserListFragment"
+        android:label="Users"
+        tools:layout="@layout/fragment_user_list">
+        <action
+            android:id="@+id/action_userListFragment_to_albumListFragment"
+            app:destination="@id/albumListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumListFragment"
+        android:name="com.narara.review_study.ui.AlbumListFragment"
+        android:label="Albums"
+        tools:layout="@layout/fragment_album_list">
+        <action
+            android:id="@+id/action_albumListFragment_to_photoListFragment"
+            app:destination="@id/photoListFragment" />
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoListFragment"
+        android:name="com.narara.review_study.ui.PhotoListFragment"
+        android:label="Photos"
+        tools:layout="@layout/fragment_photo_list">
+        <action
+            android:id="@+id/action_photoListFragment_to_photoDetailFragment"
+            app:destination="@id/photoDetailFragment" />
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoDetailFragment"
+        android:name="com.narara.review_study.ui.PhotoDetailFragment"
+        android:label="Photo Detail"
+        tools:layout="@layout/fragment_photo_detail" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+</navigation>
